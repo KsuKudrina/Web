@@ -1,0 +1,14 @@
+body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5QYnpn2gis3m0nalOU0EBFuC3k9YM_IcfyqWjXXrv6g-R_-EfHW4drcf7K95F7LlyJ3A&usqp=CAU);
+}
+h1{
+    color: rgb(5, 13, 170);
+}
+
+h2{
+    color: blue;
+    /* background-color: aquamarine; */
+}
+h3{
+    color: darkslateblue;
+}

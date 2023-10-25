@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MyWeb</title>
+</head>
+<body>
+    
+    <h1>Контейнеризация.</h1>
+    <h2>Docker. Dockerfile</h2>
+    <hr>
+    <p><b>Заходим в контейнер</b></p>
+    <ul><li>docker run -it ubuntu:23.10 bash</li></ul>
+    <p><b>внутри контейнера</b></p>
+    <ul>
+        <li>apt update</li>
+        <li>apt install iproute2</li>
+        <li>exit</li>
+        <hr>
+        <li>docker start ID <i>- запускаем контейнер</i></li>
+        <li>docker exec -it ID bash <i>- зайти внутрь контейнера</i></li>
+        <li>exit</li>
+        <li>docker stop ID</li>
+        <li>docker container rm ID</li>
+    </ul>
+    <h3>база данных mariadb</h3>
+    <ul>
+        <li>cd /var/www/gb/docker</li>
+        <li>mkdir mydb</li>
+        <li>docker run --name mariadb-container-1 -d -v /var/www/gb/docker/mydb:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=5645 mariadb:10.10.2</li>
+        <li>docker ps</li>
+        <li>docker exec -it ID bash</li>
+        <li>mysql -u root -p</li>
+        <ul>show databases;</ul>
+        <ul>create database GB;</ul>
+        <ul>exit</ul>
+        <li>exit</li>
+    </ul>
+    
+
+
+
+    <h3>PHP MyAdmin</h3>
+    <ul>docker run --name myadmin-gb-1 -d --link mariadb-container-1:db -p 8081:80 phpmyadmin/phpmyadmin</ul>
+    <p><b>в браузере</b></p>
+    <ul>0.0.0.0:8081</ul>
+    <img src="phpmyadmin.png" alt="PHPMyAdmin вход">
+    <br>
+    <!-- <ol>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+    </ol> -->
+
+    <a href="https://ya.ru">Спроси у яндекса</a>
+    <br>
+    <a href="https://google.com">Google</a>
+    
+</body>
+</html>
